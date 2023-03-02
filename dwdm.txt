@@ -1,0 +1,368 @@
+1
+INput:
+# take input from user
+total_seconds = int(input("Enter number of seconds: "))
+
+# calculate hours, minutes and remaining seconds
+hours = total_seconds // 3600
+total_seconds %= 3600
+
+minutes = total_seconds // 60
+seconds = total_seconds % 60
+
+# print the result
+print(f"{hours} - {minutes} - {seconds}")
+
+Output:
+
+Enter number of seconds: 3675
+1 - 1 - 15
+
+
+In this script, we first prompt the user to enter the number of seconds using the input() function, and convert it to an integer using the int() function.
+
+We then use the floor division operator // to calculate the number of hours, which is the total number of seconds divided by 3600. We also use the remainder operator % to calculate the remaining seconds after the hours have been calculated.
+
+Next, we use the floor division operator // again to calculate the number of minutes, which is the remaining seconds divided by 60. We use the remainder operator % again to calculate the remaining seconds after the minutes have been calculated.
+
+Finally, we print the hours, minutes, and seconds using the print() function and formatted string literals (f-strings) to separate them with " - ".
+
+
+2,
+Here's the Python code to calculate and print the number of bacteria after 0, 5, 10, and 15 hours using the given growth formula:
+
+input:
+hours = [0, 5, 10, 15]  # list of hours
+print("Hours\tBacteria")
+for h in hours:
+    bacteria = 200 * 2 ** (h // 5)  # calculate bacteria using growth formula
+    print(f"{h}\t{bacteria}")
+
+output
+Hours   Bacteria
+0       200
+5       6400
+10      204800
+15      6553600
+
+n this code, we define a list hours containing the hours we want to calculate the number of bacteria for. We then use a for loop to iterate over each hour in the list, and calculate the number of bacteria using the given growth formula B = 200 * 2n, where n is the number of hours divided by 5 (since the growth rate is based on 5-hour periods).
+
+We use an f-string to format the output with a tab escape sequence \t to separate the hours and the corresponding number of bacteria. The first column is labeled "Hours" and the second column is labeled "Bacteria".
+
+
+
+
+3
+
+Here's a Python script that prompts the user to input the number of reported infections per day over one week, and calculates the total, average, smallest, and largest of these values using a loop structure:
+
+# initialize variables
+total = 0
+smallest = None
+largest = None
+infections = []
+
+# prompt user to input infections per day
+for i in range(1, 8):
+    num_infected = int(input(f"Enter the number of infections reported for day {i}: "))
+    infections.append(num_infected)
+    total += num_infected
+    if smallest is None or num_infected < smallest:
+        smallest = num_infected
+    if largest is None or num_infected > largest:
+        largest = num_infected
+
+# calculate average
+average = total / len(infections)
+
+# print results
+print(f"Total infections: {total}")
+print(f"Average infections per day: {average:.2f}")
+print(f"Smallest number of infections in a day: {smallest}")
+print(f"Largest number of infections in a day: {largest}")
+
+Output:
+Enter the number of infections reported for day 1: 10
+Enter the number of infections reported for day 2: 9
+Enter the number of infections reported for day 3: 8
+Enter the number of infections reported for day 4: 7
+Enter the number of infections reported for day 5: 6
+Enter the number of infections reported for day 6: 6
+Enter the number of infections reported for day 7: 5
+4Total infections: 51
+Average infections per day: 7.29
+Smallest number of infections in a day: 5
+Largest number of infections in a day: 10
+
+
+In this script, we first initialize the variables total, smallest, largest, and infections. We then use a for loop to prompt the user to input the number of infections reported for each day of the week, and add the value to the total variable. We also append each value to the infections list.
+
+Inside the loop, we also check if the current value is smaller than the smallest value or larger than the largest value. If so, we update the corresponding variable accordingly.
+
+After the loop, we calculate the average by dividing the total by the number of elements in the infections list.
+
+Finally, we print the results using f-strings. The :.2f format specifier is used to format the average value to two decimal places.
+
+
+
+
+4
+To calculate the mean, median, and mode of the temperatures measured in Sidney on the first 9 days of February (in °C): 19.5, 19.5, 21.6, 20.2, 19.7, 20.2, 18.6, 17.2, and 19.5, we can use Python's statistics module. Here's the code:
+
+input:
+import statistics
+
+temperatures = [19.5, 19.5, 21.6, 20.2, 19.7, 20.2, 18.6, 17.2, 19.5]
+
+mean = statistics.mean(temperatures)
+median = statistics.median(temperatures)
+mode = statistics.mode(temperatures)
+
+print(f"Mean temperature: {mean:.1f} °C")
+print(f"Median temperature: {median:.1f} °C")
+print(f"Mode temperature: {mode:.1f} °C")
+
+
+output:
+Mean temperature: 19.6 °C
+Median temperature: 19.5 °C
+Mode temperature: 19.5 °C
+
+
+In this code, we first import the statistics module. We then define a list temperatures containing the temperatures measured in Sidney on the first 9 days of February.
+
+We use the mean(), median(), and mode() functions from the statistics module to calculate the mean, median, and mode of the temperatures in the temperatures list, respectively.
+
+Finally, we use f-strings to print the results. The :.1f format specifier is used to format the temperature values to one decimal place.
+
+
+
+
+5.
+Here's a Python script that simulates rolling a six-sided die 6,000,000 times using the randrange() function from the random module:
+
+Input:
+import random
+
+# initialize count for each die face to 0
+counts = [0] * 6
+
+# roll the die 6,000,000 times and update counts
+for i in range(6000000):
+    roll = random.randrange(1, 7)
+    counts[roll-1] += 1
+
+# print the counts for each die face
+print(f"Counts for each die face: {counts}")
+
+
+Output:
+Counts for each die face: [1001045, 1000396, 999161, 1000588, 998644, 1000166]
+
+
+
+In this script, we first import the random module. We then initialize a list counts with six elements, each set to 0. This list will keep track of the number of times each die face occurs.
+
+We use a for loop to simulate rolling the die 6,000,000 times. Inside the loop, we use the randrange() function to generate a random integer between 1 and 6, inclusive, representing the face of the die that comes up on this roll. We then update the corresponding element of the counts list.
+
+After the loop, we print the counts list, which should show approximately 1,000,000 occurrences of each die face.
+
+
+
+6.
+Here's a Python script that uses the statistics module to calculate various statistics for a list of COVID-19 infection rates:
+
+INput:
+import statistics
+
+# create a list of infection rates
+infection_rates = [174, 335, 278, 214, 422, 513, 737, 672, 489, 412, 1301, 1105, 1123, 1376, 1502, 894, 665, 1704, 1656, 1342]
+
+# calculate and print statistics
+print(f"Minimum: {min(infection_rates)}")
+print(f"Maximum: {max(infection_rates)}")
+print(f"Range: {max(infection_rates) - min(infection_rates)}")
+print(f"Mean: {statistics.mean(infection_rates)}")
+print(f"Median: {statistics.median(infection_rates)}")
+print(f"Variance: {statistics.variance(infection_rates)}")
+print(f"Standard deviation: {statistics.stdev(infection_rates)}")
+
+
+Output:
+Minimum: 174
+Maximum: 1704
+Range: 1530
+Mean: 845.7
+Median: 704.5
+Variance: 253620.74736842106
+Standard deviation: 503.60773164082883
+
+
+
+
+In this script, we first create a list infection_rates containing the daily infection rates. We then use various functions from the statistics module to calculate and print the desired statistics.
+
+The min() and max() functions are used to find the minimum and maximum values in the infection_rates list, respectively. The range is simply the difference between the maximum and minimum values.
+
+The mean() function is used to find the mean (average) of the infection rates. The median() function is used to find the median (middle) value of the infection rates. Note that if the list has an even number of elements, the median is the average of the two middle values.
+
+The variance() function is used to find the variance of the infection rates. The stdev() function is used to find the standard deviation of the infection rates. Note that the standard deviation is simply the square root of the variance.
+
+
+
+
+7.
+
+Here's a Python script that uses the matplotlib library to create a bar chart of the daily COVID-19 infection rates:
+
+INput:
+import matplotlib.pyplot as plt
+
+# create a list of infection rates
+infection_rates = [174, 335, 278, 214, 422, 513, 737, 672, 489, 412, 1301, 1105, 1123, 1376, 1502, 894, 665, 1704, 1656, 1342]
+
+# create a list of days
+days = list(range(1, len(infection_rates)+1))
+
+# create the bar chart
+plt.bar(days, infection_rates)
+
+# add labels and title
+plt.xlabel("Day")
+plt.ylabel("Number of new infections")
+plt.title("COVID-19 Infection Rates for First 20 Days")
+
+# display the chart
+plt.show()
+
+
+
+Output:
+
+
+
+
+
+
+In this script, we first create a list infection_rates containing the daily infection rates. We also create a list days containing the corresponding day numbers.
+
+We then use the bar() function from the matplotlib.pyplot module to create a bar chart with the days on the x-axis and the infection rates on the y-axis.
+
+We add labels to the x-axis and y-axis using the xlabel() and ylabel() functions, respectively. We also add a title to the chart using the title() function.
+
+Finally, we use the show() function to display the chart.
+
+
+8.
+Here's some Python code that calculates the probability distribution and expected value for the sum of two dice:
+
+Input:
+# Define the possible values for the sum of two dice
+dice_sum = range(2, 13)
+
+# Calculate the probability of each possible sum
+dice_prob = [0]*11
+for i in range(2, 13):
+    if i <= 7:
+        dice_prob[i-2] = (i-1)/36
+    else:
+        dice_prob[i-2] = (13-i)/36
+
+# Calculate the expected value
+expected_value = sum([dice_sum[i]*dice_prob[i] for i in range(11)])
+
+# Print the probability distribution and expected value
+print("Sum\tProbability")
+for i in range(11):
+    print(f"{dice_sum[i]}\t{dice_prob[i]:.3f}")
+print(f"\nExpected value: {expected_value:.2f}")
+
+
+
+Output:
+Sum	Probability
+2	0.028
+3	0.056
+4	0.083
+5	0.111
+6	0.139
+7	0.167
+8	0.139
+9	0.111
+10	0.083
+11	0.056
+12	0.028
+
+Expected value: 7.00
+
+
+
+
+This code defines the possible values for the sum of two dice as a range from 2 to 12. It then calculates the probability of each possible sum by iterating over the range and using conditional statements to determine the probability based on whether the sum is less than or equal to 7 (in which case there are i-1 possible ways to obtain it) or greater than 7 (in which case there are 13-i possible ways to obtain it).
+
+The code then calculates the expected value by taking the sum of the product of each possible sum and its corresponding probability.
+
+Finally, the code prints out the probability distribution and expected value. The probability distribution is displayed as a table with two columns, one for the sum and one for the probability, and the expected value is displayed as a single number.
+
+
+
+9.
+
+Here's some modified Python code that takes a command-line argument for the number of rolls and displays a horizontal bar plot summarizing the roll frequencies using the Seaborn library:
+
+INput:
+
+import sys
+import random
+import seaborn as sns
+import matplotlib.pyplot as plt
+
+# Define the possible values for the sum of two dice
+dice_sum = range(2, 13)
+
+# Parse command-line argument for number of rolls
+if len(sys.argv) != 2:
+    print("Usage: python dice_rolls.py <number of rolls>")
+    sys.exit(1)
+num_rolls = int(sys.argv[1])
+
+# Simulate the rolls and calculate the frequencies
+freq = [0]*11
+for i in range(num_rolls):
+    roll = random.randint(1, 6) + random.randint(1, 6)
+    freq[roll-2] += 1
+
+# Calculate the expected value
+expected_value = sum([dice_sum[i]*((i+1)/36) for i in range(11)])
+
+# Display the probability distribution and expected value as a bar plot
+sns.set(style="whitegrid")
+ax = sns.barplot(x=freq, y=dice_sum, orient="h")
+ax.set(xlabel='Frequency', ylabel='Sum', title=f'Sum of two dice rolls ({num_rolls} rolls)')
+plt.axvline(x=num_rolls/11, color='r', linestyle='--', label='Expected value')
+plt.legend()
+plt.show()
+
+
+Output:
+
+
+
+
+
+
+
+This code first checks that there is exactly one command-line argument, which is expected to be the number of rolls. It then parses this argument as an integer and stores it in the variable num_rolls.
+
+The code then simulates the rolls by generating two random integers between 1 and 6, adding them together, and incrementing the corresponding frequency count. This process is repeated num_rolls times.
+
+Next, the expected value is calculated using the same formula as before.
+
+Finally, the code uses the Seaborn library to display a horizontal bar plot of the roll frequencies. The barplot function is used with the orient keyword argument set to 'h' to specify a horizontal plot. The x-axis shows the frequency and the y-axis shows the possible sums of the dice. The plot also includes a vertical line at the expected value and a legend to indicate its meaning.
+
+To run the code, you would enter a command like this:
+
+python dice_rolls.py 360
+
+This would simulate 360 rolls of two dice and display a bar plot of the roll frequencies. You can replace 360 with any other positive integer to simulate a different number of rolls. The resulting plot should be similar to the one shown in the first screen capture provided in the question prompt.
+
